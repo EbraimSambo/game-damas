@@ -31,11 +31,11 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
+      "icons/icons-app/favicon-32x32.png",
+      "icons/icons-app/apple-touch-icon.png",
+      "icons/icons-app/android-chrome-192x192.png",
+      "icons/icons-app/android-chrome-512x512.png",
+      "icons/icons-app/favicon.ico"
     ]
   }
 }
