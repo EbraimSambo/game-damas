@@ -140,7 +140,7 @@ html, body, #root {
 }
 .start-btn:hover { opacity: 0.85; }
 
-.damas-layout { display: flex; gap: 28px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.damas-layout { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
 
 .board-frame {
   background: linear-gradient(155deg, var(--frame), #2a1c11);
