@@ -12,7 +12,6 @@ import {
   piecesWithCaptures,
 } from "../game/board";
 import { chooseComputerMove } from "../game/ai";
-import Header from "./Header";
 import Controls from "./Controls";
 import BoardView from "./Board";
 import SidePanel from "./SidePanel";
