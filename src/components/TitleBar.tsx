@@ -10,7 +10,7 @@ export default function TitleBar() {
 
   return (
     <div className="titlebar" onPointerDown={onPointerDown}>
-      <span className="titlebar-title">Damas</span>
+      <span className="titlebar-title">Trono de Marfim</span>
       <div className="titlebar-actions">
         <button className="titlebar-btn" onClick={() => win.minimize()} title="Minimizar">
           <svg viewBox="0 0 12 12" width="12" height="12"><rect y="5" width="12" height="1.5" fill="currentColor"/></svg>
