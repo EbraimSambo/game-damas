@@ -135,7 +135,6 @@ export default function Damas() {
   if (screen === "menu") {
     return (
       <div className="damas-root">
-        <Header />
         <Controls
           mode={mode}
           difficulty={difficulty}
