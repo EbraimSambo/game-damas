@@ -27,6 +27,7 @@ export default function Damas() {
   const [winner, setWinner] = useState<PlayerId | null>(null);
   const [thinking, setThinking] = useState(false);
   const [lastMove, setLastMove] = useState<{ from: Pos; to: Pos } | null>(null);
+  const [screen, setScreen] = useState<"menu" | "game">("menu");
 
   const computerPlayer: PlayerId = "B";
   const isComputerTurn = mode === "cpu" && current === computerPlayer && !winner;
@@ -54,13 +55,17 @@ export default function Damas() {
     return { aLeft: a, bLeft: b };
   }, [board]);
 
-  const resetGame = useCallback((nextMode?: Mode) => {
+  const startGame = useCallback(() => {
     setBoard(createInitialBoard());
     setCurrent("A");
     setSelected(null);
     setWinner(null);
     setLastMove(null);
-    if (nextMode) setMode(nextMode);
+    setScreen("game");
+  }, []);
+
+  const backToMenu = useCallback(() => {
+    setScreen("menu");
   }, []);
 
   const finishTurn = useCallback(
@@ -127,18 +132,23 @@ export default function Damas() {
     return () => clearTimeout(timer);
   }, [isComputerTurn, board, difficulty]);
 
+  if (screen === "menu") {
+    return (
+      <div className="damas-root">
+        <Header />
+        <Controls
+          mode={mode}
+          difficulty={difficulty}
+          onModeChange={setMode}
+          onDifficultyChange={setDifficulty}
+          onStart={startGame}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="damas-root">
-      <Header />
-
-      <Controls
-        mode={mode}
-        difficulty={difficulty}
-        onModeChange={(m) => resetGame(m)}
-        onDifficultyChange={setDifficulty}
-        onRestart={() => resetGame()}
-      />
-
       <div className="damas-layout">
         <BoardView
           board={board}
@@ -155,6 +165,8 @@ export default function Damas() {
           mandatory={mandatoryCapturers.length > 0}
           aLeft={captured.aLeft}
           bLeft={captured.bLeft}
+          onBackToMenu={backToMenu}
+          onRestart={startGame}
         />
       </div>
     </div>

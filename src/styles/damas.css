@@ -1,3 +1,10 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #171310;
+}
+
 .damas-root {
   --bg: #171310;
   --panel: #221c16;
@@ -17,47 +24,61 @@
   color: var(--cream);
   background: var(--bg);
   padding: 28px 20px 40px;
-  min-height: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 .damas-root *, .damas-root *::before, .damas-root *::after { box-sizing: border-box; }
 
-.damas-header { text-align: center; margin-bottom: 20px; }
+.damas-header { text-align: center; margin-bottom: 16px; }
 .damas-header h1 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 40px;
+  font-weight: 700;
   letter-spacing: 0.04em;
   margin: 0;
-  background: linear-gradient(180deg, var(--gold), var(--brass));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--cream);
 }
-.damas-header p { color: var(--muted); margin: 6px 0 0; font-size: 14px; }
+.damas-header p { color: var(--muted); margin: 6px 0 0; font-size: 13px; }
 
-.damas-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: 22px;
-}
-.control-group { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.control-group { display: flex; flex-direction: column; gap: 6px; }
 .control-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
-.segmented { display: flex; background: var(--panel); border-radius: 999px; padding: 4px; gap: 2px; border: 1px solid #3a2f24; }
+.segmented { display: flex; border: 1px solid #3a2f24; border-radius: 6px; overflow: hidden; }
 .segmented button {
   border: none; background: transparent; color: var(--muted);
-  padding: 8px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
+  padding: 8px 16px; font-size: 13px; cursor: pointer;
+  flex: 1; white-space: nowrap;
   transition: background 0.2s, color 0.2s;
+  border-right: 1px solid #3a2f24;
 }
+.segmented button:last-child { border-right: none; }
 .segmented button.active { background: var(--gold); color: #1a1409; font-weight: 600; }
-.restart-btn {
-  border: 1px solid var(--brass); background: transparent; color: var(--gold);
-  padding: 10px 18px; border-radius: 999px; cursor: pointer; font-size: 13px;
-  transition: background 0.2s, color 0.2s;
+
+/* --- Menu --- */
+.damas-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
 }
-.restart-btn:hover { background: var(--gold); color: #1a1409; }
+.menu-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 320px;
+}
+.start-btn {
+  background: var(--gold);
+  color: #1a1409;
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+.start-btn:hover { opacity: 0.85; }
 
 .damas-layout { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
 
@@ -114,7 +135,7 @@
 }
 .turn-card.done { border-color: var(--gold); }
 .turn-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.turn-value { font-size: 20px; font-family: Georgia, serif; }
+.turn-value { font-size: 20px; font-weight: 600; }
 .turn-value.player-A { color: var(--ivory-a); }
 .turn-value.player-B { color: var(--cream); }
 .hint { margin-top: 6px; font-size: 12px; color: var(--gold); }
@@ -124,6 +145,27 @@
 .score-num { margin-left: auto; color: var(--muted); font-size: 12px; }
 
 .rules-note { font-size: 12px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+.side-actions {
+  display: flex;
+  gap: 8px;
+}
+.side-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #3a2f24;
+  color: var(--muted);
+  padding: 6px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.side-btn:hover {
+  background: var(--gold);
+  color: #1a1409;
+  border-color: var(--gold);
+}
 
 @media (max-width: 640px) {
   .board { grid-template-columns: repeat(8, minmax(28px, 40px)); grid-template-rows: repeat(8, minmax(28px, 40px)); }

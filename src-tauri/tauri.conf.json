@@ -12,9 +12,15 @@
   "app": {
     "windows": [
       {
-        "title": "game-damas",
-        "width": 800,
-        "height": 600
+        "title": "Damas",
+        "width": 890,
+        "height": 600,
+        "minWidth": 890,
+        "minHeight": 600,
+        "maximizable": false,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": false
       }
     ],
     "security": {

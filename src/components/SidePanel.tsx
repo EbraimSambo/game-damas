@@ -9,9 +9,11 @@ interface SidePanelProps {
   mandatory: boolean;
   aLeft: number;
   bLeft: number;
+  onBackToMenu: () => void;
+  onRestart: () => void;
 }
 
-export default function SidePanel({ winner, current, thinking, mandatory, aLeft, bLeft }: SidePanelProps) {
+export default function SidePanel({ winner, current, thinking, mandatory, aLeft, bLeft, onBackToMenu, onRestart }: SidePanelProps) {
   return (
     <aside className="side-panel">
       <TurnCard
@@ -26,6 +28,10 @@ export default function SidePanel({ winner, current, thinking, mandatory, aLeft,
         qualquer diagonal. Ao alcançar a última linha, tornam-se damas e
         passam a mover-se livremente pela diagonal.
       </p>
+      <div className="side-actions">
+        <button className="side-btn" onClick={onRestart}>↻ Reiniciar</button>
+        <button className="side-btn" onClick={onBackToMenu}>← Sair</button>
+      </div>
     </aside>
   );
 }
