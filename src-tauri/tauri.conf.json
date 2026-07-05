@@ -14,9 +14,9 @@
       {
         "title": "Damas",
         "width": 890,
-        "height": 600,
+        "height": 620,
         "minWidth": 890,
-        "minHeight": 600,
+        "minHeight": 620,
         "maximizable": true,
         "resizable": true,
         "fullscreen": false,
