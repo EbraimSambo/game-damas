@@ -19,7 +19,6 @@ export default function Controls({ mode, difficulty, onModeChange, onDifficultyC
     <section className="damas-menu">
       <div className="menu-controls">
         <div className="control-group">
-          <span className="control-label">Modo</span>
           <div className="segmented">
             <button
               className={mode === "pvp" ? "active" : ""}
